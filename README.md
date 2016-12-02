@@ -180,7 +180,7 @@ How do you compare cards?
 Start working with a partner and create and play a few rounds of the popular card game, "High Card!" 
 
 You will:
- - One on users github account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
+ - On one users' Git account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
  - use Ruby enumerable methods to create the game
  - create an algorithm to determine which of two cards, if either, is "greater" than the other.
  - accept input from the command line that your program uses
@@ -196,5 +196,5 @@ Finish the High Card game! One submission per pair. Please have at least one com
 https://github.com/danman01/high_card
 
 ## Resources
-[GA DC Ruby Enumerables](https://github.com/ga-wdi-lessons/ruby-enumerables)
-[Ruby Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
+- [GA DC Ruby Enumerables](https://github.com/ga-wdi-lessons/ruby-enumerables)
+- [Ruby Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
