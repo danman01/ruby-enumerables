@@ -1,5 +1,23 @@
-# ruby-enumerables
-enumerables in ruby
+# Ruby Enumerables
+The Ruby module that allows searching, traversing and manipulating collections.
+
+Take a look at these examples. Can you describe what is going on in each?
+```
+[1,3,5].max
+=> 5
+```
+```
+[2,5,6,7].select {|num| num % 2 == 0 }
+=> [2,6]
+```
+```
+toys = {"cars": ["mazda","porsche","subaru"], "bikes": ["schwinn", "GT", "surly"]}
+toys.each do |key, value|
+  puts "#{key}: #{value}"
+end
+=> cars: ["mazda", "porsche", "subaru"]
+   bikes: ["schwinn", "GT", "surly"]
+```
 
 ## Framing
 One of the most common things we do as developers is to iterate through data structures.
@@ -18,50 +36,68 @@ We learned how to work with collections of data in Javascript: looping through d
  
 ## What is an Enumerable?
  - A Ruby Module
-  - acts on a collection
-   - hashes
-   - arrays
+  - acts on a collection ([] and {}, otherwise known as...)
+
  - Allows traversing, sorting, searching and modifying the collection
-  - Open your `irb` and create an enumerable
-    - What methods are available to your enumerable
-      - `yourEnum.methods.sort`
-    - You just sorted a collection!
-  - How does the instance of the class you chose have all of the methods of the Enumerable module available to it?
+  
  - Use in your classes by `include`ing the module
    - known as a `mixin`
-   
+### Try it
+ - Open your `irb` and create an enumerable
+  - What methods are available to your enumerable?
+  - `yourEnum.methods`
+    - Try sorting this collection. (Hint: there is a `sort` method)
+    - Try returning only method names that start with "s" (pseudocode is fine...we will revisit this)
+  - How does the instance of the class you chose have all of the methods of the Enumerable module available to it?
 ## Ruby Docs
- - What methods are available in the Enumerable Module? 
-   - `Enumerable.instance_methods.sort`
+ - What methods are available in the Enumerable Module? `
  - Does a class have a certain method implemented?
- - Easier to view here: [Enumerable?](https://ruby-doc.org/core-2.3.3/Enumerable.html)
- ### Group Exercise: Documentation Dive 
+ - View Usage examples
+ - View The Docs here: [Enumerable](https://ruby-doc.org/core-2.3.3/Enumerable.html)
+ 
+### Group Exercise: Documentation Dive 
 
-  - Instructions: Each group will spend 10 minutes using Ruby documentation to look up an assigned enumerable. Prepare the following for your demo:
+ - Instructions: In your pods, spend 10 minutes using Ruby documentation to look up an assigned enumerable. Prepare the following for your demo:
 
-  - Your own definition of what it does
+  - Your own definition of what it does. Make sure to talk about:
+    - What arguments can the method take?
+    - What is returned?
+    - Does it take a block? If so, what happens when a block is given? 
   - An example
+  - A list of any method aliases (i.e `inject` and `reduce`)
   - At a high level, try to find/think of a use case of this enumerable in the wild. It doesn't have to be the actual code, just conceptually similar.
   - The enumerables are:
 
   - `Each With Index`
   - `Reject`
+  - `map` 
+  
   - `Find`
   - `Select`
   - `Sort By`
-  - `Inject/Reduce`
+  
+  - `Reduce` 
   - `any?`
   - `all?`
+  
+  - `include?` 
+  - `flat_map`
+  - `grep`
+  
 
-Exercise
+## You Do 
 
-Print out every possible combination of the below ice cream flavors and toppings:
-
-`flavors = [ "vanilla", "chocolate", "strawberry", "butter pecan", "cookies and cream", "rainbow" ]`
-`toppings = [ "gummi bears", "hot fudge", "butterscotch", "rainbow sprinkles", "chocolate sprinkles" ]`
+ - Open up your ruby console
+ 
+ - Print out every possible combination of the below ice cream flavors and toppings:
+```
+flavors = [ "vanilla", "chocolate", "strawberry", "butter pecan", "cookies and cream", "rainbow" ]
+toppings = [ "gummi bears", "hot fudge", "butterscotch", "rainbow sprinkles", "chocolate sprinkles" ]
+```
 
 Hint: "nest"
-------
+
+## More Examples
 What does this do?
 ```
 (5..10).inject(1, :*)
@@ -74,6 +110,10 @@ longest = %w{ cat sheep bear }.reduce do |memo, word|
 end
 longest
 ```
+Back to the earlier example of method names that start with an "s":
+`[].methods.select { | meth | meth=~/\A(s)/ }`
+What is going on here?
+
 ## Working with Collections
  #### Code Together:
  Let's create a
@@ -103,7 +143,9 @@ longest
 
 > Things an object knows about itself are called instance variables. They represent an object's state (the data - for example, the quantity and the product id), and can have unique values for each object of that type.
 
-> Things an object can do are called methods. [RubyLearning.com](http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html)
+> Things an object can do are called methods. - [RubyLearning.com](http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html)
+
+ - How do you show which modules are included within a class?
 
 ## BREAK!
 
