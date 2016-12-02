@@ -1,21 +1,4 @@
 # Ruby Enumerables
-The Ruby module that allows searching, traversing and manipulating collections.
-
-Take a look at these examples. Can you describe what is going on in each?
-```
-[1,3,5].max
-=> 5
-```
-
-```
-toys = {"cars": ["mazda","porsche","subaru"], "bikes": ["schwinn", "GT", "surly"]}
-toys.each do |key, value|
-  puts "#{key}: #{value}"
-end
-=> cars: ["mazda", "porsche", "subaru"]
-   bikes: ["schwinn", "GT", "surly"]
-```
-
 ## Framing
 One of the most common things we do as developers is to iterate through data structures.
 
@@ -32,19 +15,33 @@ We learned how to work with collections of data in Javascript: looping through d
  - Implement a ruby class that is enumerable
  
 ## What is an Enumerable?
- - A Ruby Module
-  - acts on a collection ([] and {}, otherwise known as...)
+ - The Ruby module that allows searching, traversing, sorting and manipulating collections.
 
- - Allows traversing, sorting, searching and modifying the collection
+ - Take a look at these examples. Can you describe what is going on in each?
+```
+[1,3,5].max
+=> 5
+```
+
+```
+toys = {"cars": ["mazda","porsche","subaru"], "bikes": ["schwinn", "GT", "surly"]}
+toys.each do |key, value|
+  puts "#{key}: #{value}"
+end
+=> cars: ["mazda", "porsche", "subaru"]
+   bikes: ["schwinn", "GT", "surly"]
+```
+ - acts on a collection ([] and {}, otherwise known as...)
   
  - Use in your classes by `include`ing the module
    - known as a `mixin`
+   
 ### Try it
  - Open your `irb` and create an enumerable
   - What methods are available to your enumerable?
   - `yourEnum.methods`
     - Try sorting this collection. (Hint: there is a `sort` method)
-    - Try returning only method names that start with "s" (pseudocode is fine...we will revisit this)
+    - Think about how you might return only method names that start with "s" (...we will revisit this)
   - How does the instance of the class you chose have all of the methods of the Enumerable module available to it?
 ## Ruby Docs
  - What methods are available in the Enumerable Module? `
@@ -66,24 +63,24 @@ We learned how to work with collections of data in Javascript: looping through d
   
   - The enumerables are:
 
-  1.`each_with_index`
-  2.`reject`
-  3.`map` 
+  1. `each_with_index`
+  2. `reject`
+  3. `map` 
   
-  4.`find`
-  5.`select`
-  6.`sort_by`
+  4. `find`
+  5. `select`
+  6. `sort_by`
   
-  7.`reduce` 
-  8.`any?`
-  9.`each`
+  7. `reduce` 
+  8. `any?`
+  9. `each`
   
-  10.`include?` 
-  11.`flat_map`
-  12.`all`
+  10. `include?` 
+  11. `flat_map`
+  12. `all`
   
 
-## You Do 
+## You Do: Ice Cream Menu
 
  - Open up your ruby console
  
@@ -93,42 +90,69 @@ flavors = [ "vanilla", "chocolate", "strawberry", "butter pecan", "cookies and c
 toppings = [ "gummi bears", "hot fudge", "butterscotch", "rainbow sprinkles", "chocolate sprinkles" ]
 ```
 
-Hint: "nest"
+>Hint: "nest"
 
 ## Learn Together
 - Describe what is going on here?
+```
+[2,5,6,7].reject {|num| num % 2 == 0 }
+=> [5,7]
+```
 ```
 [2,5,6,7].select {|num| num % 2 == 0 }
 => [2,6]
 ```
 
 Give me just the names that start with "s":
-`["sam","tim","bob","solomon"].select { | name | name=~/\A(s)/ }`
+```
+["sam","tim","bob","solomon"].select do | name | 
+  name=~/\A(s)/ 
+ end
+```
 
 
 ## Break!
 
+## Ranges
+ - What is a range?
+ `1..2`
+ `1...10`
+ -Is a range enumerable?
+ -How do you know?
+
 ### Map
- - `map` is used to create an Array of transformed Enumerable elements
+ - The Enumerable module contains several methods that allow you to create a new collection out of an existing one. `map` is a popular method that applies code to each item in the original collection and returns a new array.
  
  Consider the following example:
  
  ```
-   ["honda","bmw","ford","cadillac"].map do |car|
+   cars = ["honda","bmw","ford","cadillac"]
+   cars.map do |car|
      car.capitalize
    end
 ```
- - what is given to `map`?
- - what does `map` do to array?
+ - what does `map` act on?
+ - what is provided to `map`?
+ - what does `map` do to the original array?
  - what is returned?
  
 ### Reduce
- - `reduce` is used to "summarize" the elements in an Enumerable
- - What does this do?
+ - `inject` aka `reduce` is used to "accumulate" the elements in a collection to give a final answer.
+ - This method performs an operation that combines the current enum with the accumalator value (sometimes denoted as a "memo"). As we loop through the collection, the code in the block acts on each element in the enum and the value returned from the code is used as the starting point for the next round in the loop. The final answer is the accumulation of each round. If you pass a symbol and a method or operator, that method will act upon each enum.
+ 
+ - What does this do? Sometimes it helps to write it out...
 ```
-(5..10).inject(1, :*)
+(5..10).inject { |sum, n| sum + n }  
 ```
-- How about this?
+ - The same using the shorthand of providing a symbol and method or operator:
+```
+(5..10).reduce(:+)
+```
+
+ -Find the longest word in a list, without using `reduce`
+  ["war","what","is","it","good","forrrr"]
+ 
+ - Now try it with `reduce`
 
 ```
 longest = %w{ cat sheep bear }.reduce do |memo, word|
@@ -136,33 +160,6 @@ longest = %w{ cat sheep bear }.reduce do |memo, word|
 end
 longest
 ```
- - The Docs say it well:
- ```
-reduce(initial, sym) → obj
-reduce(sym) → obj
-reduce(initial) { |memo, obj| block } → obj
-reduce { |memo, obj| block } → obj
-Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.
-
-If you specify a block, then for each element in enum the block is passed an accumulator value (memo) and the element. If you specify a symbol instead, then each element in the collection will be passed to the named method of memo. In either case, the result becomes the new value for memo. At the end of the iteration, the final value of memo is the return value for the method.
-
-If you do not explicitly specify an initial value for memo, then the first element of collection is used as the initial value of memo.
-
-# Sum some numbers
-(5..10).reduce(:+)                             #=> 45
-# Same using a block and inject
-(5..10).inject { |sum, n| sum + n }            #=> 45
-# Multiply some numbers
-(5..10).reduce(1, :*)                          #=> 151200
-# Same using a block
-(5..10).inject(1) { |product, n| product * n } #=> 151200
-# find the longest word
-longest = %w{ cat sheep bear }.inject do |memo, word|
-   memo.length > word.length ? memo : word
-end
-longest                                        #=> "sheep"
-```
-
 
 ## Demo: Write our own class that implements Enumerable
  >The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method each, which yields successive members of the collection. If Enumerable#max, #min, or #sort is used, the objects in the collection must also implement a meaningful <=> operator, as these methods rely on an ordering between members of the collection. - [The Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
@@ -182,13 +179,6 @@ longest                                        #=> "sheep"
  - How do you show which modules are included within a class?
 
 ## BREAK!
-
-## Ranges
- - What is a range?
- `1..2`
- `1...10`
- -Is a range enumerable?
- -How do you know?
  
 ## Group exercise - High Card
 
