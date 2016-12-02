@@ -115,7 +115,7 @@ Give me just the names that start with "s":
 
 ## Ranges
  - What is a range?
- `1..2`
+ - `1..2` is different from
  `1...10`
  -Is a range enumerable?
  -How do you know?
@@ -169,13 +169,6 @@ longest
  - an `include` statement to "mixin" the Enumerable module and gain all of it's superpower
  - an `each` method, which yields successive members of the collection
  - a `<=>` operator if Enumerable#max, #min, or #sort is used
- 
- > When you design a class, think about the objects that will be created from that class type. Think about the things the object knows and the things the object does.
-
-> Things an object knows about itself are called instance variables. They represent an object's state (the data - for example, the quantity and the product id), and can have unique values for each object of that type.
-
-> Things an object can do are called methods. - [RubyLearning.com](http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html)
-
  - How do you show which modules are included within a class?
 
 ## BREAK!
@@ -195,10 +188,7 @@ You will:
 
 Go here for the details and to get started: https://github.com/danman01/high_card
 
-## Code Together:
-
-- Adding the spaceship operator to our custom Card class
-- compare cards and find the highest
+-Bonus! Implement the <=> operator in your high card game
  
 ## Homework:
 https://github.com/danman01/state_capitals
