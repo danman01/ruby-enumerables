@@ -173,14 +173,15 @@ longest
 
 ## BREAK!
  
-## Group exercise - High Card
+## Lab & Homework - High Card
 
 How do you compare cards?
 
-In your squads, create and play a few rounds of the popular card game, "High Card!" 
+Start working with a partner and create and play a few rounds of the popular card game, "High Card!" 
 
 You will:
- - use enumerable methods 
+ - One on users github account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
+ - use Ruby enumerable methods to create the game
  - create an algorithm to determine which of two cards, if either, is "greater" than the other.
  - accept input from the command line that your program uses
  - switch off who is typing the code and who is researching methods
@@ -191,4 +192,5 @@ Go here for the details and to get started: https://github.com/danman01/high_car
 -Bonus! Implement the <=> operator in your high card game
  
 ## Homework:
-https://github.com/danman01/state_capitals
+Finish the High Card game! One submission per pair. Please have at least one commit from each person so we know who worked with who.
+https://github.com/danman01/high_card
