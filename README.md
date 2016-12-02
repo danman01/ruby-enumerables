@@ -114,21 +114,51 @@ Back to the earlier example of method names that start with an "s":
 `[].methods.select { | meth | meth=~/\A(s)/ }`
 What is going on here?
 
-## Working with Collections
- #### Code Together:
- Let's create a
-#### Most used enumerable methods available in ruby
+## Break!
 
-
-
-#### Traversing, Sorting and Modifying
-
-#### Sorting
-
-### Map & Reduce
- - `map` to create an Array of transformed Enumerable elements
- - `reduce` to "summarize" the elements in an Enumerable
+### Map
+ - `map` is used to create an Array of transformed Enumerable elements
  
+ Consider the following example:
+ 
+ ```
+   ["honda","bmw","ford","cadillac"].map do |car|
+     car.capitalize
+   end
+```
+ - what is given to `map`?
+ - what does `map` do to array?
+ - what is returned?
+ 
+### Reduce
+ - `reduce` is used to "summarize" the elements in an Enumerable
+ - The Docs say it well:
+ ```
+reduce(initial, sym) → obj
+reduce(sym) → obj
+reduce(initial) { |memo, obj| block } → obj
+reduce { |memo, obj| block } → obj
+Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.
+
+If you specify a block, then for each element in enum the block is passed an accumulator value (memo) and the element. If you specify a symbol instead, then each element in the collection will be passed to the named method of memo. In either case, the result becomes the new value for memo. At the end of the iteration, the final value of memo is the return value for the method.
+
+If you do not explicitly specify an initial value for memo, then the first element of collection is used as the initial value of memo.
+
+# Sum some numbers
+(5..10).reduce(:+)                             #=> 45
+# Same using a block and inject
+(5..10).inject { |sum, n| sum + n }            #=> 45
+# Multiply some numbers
+(5..10).reduce(1, :*)                          #=> 151200
+# Same using a block
+(5..10).inject(1) { |product, n| product * n } #=> 151200
+# find the longest word
+longest = %w{ cat sheep bear }.inject do |memo, word|
+   memo.length > word.length ? memo : word
+end
+longest                                        #=> "sheep"
+```
+
 
 ## Demo: Write our own class that implements Enumerable
  >The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method each, which yields successive members of the collection. If Enumerable#max, #min, or #sort is used, the objects in the collection must also implement a meaningful <=> operator, as these methods rely on an ordering between members of the collection. - [The Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
@@ -149,6 +179,13 @@ What is going on here?
 
 ## BREAK!
 
+## Ranges
+ - What is a range?
+ `1..2`
+ `1...10`
+ -Is a range enumerable?
+ -How do you know?
+ 
 ## Group exercise - High Card
 
 How do you compare cards?
