@@ -6,10 +6,7 @@ Take a look at these examples. Can you describe what is going on in each?
 [1,3,5].max
 => 5
 ```
-```
-[2,5,6,7].select {|num| num % 2 == 0 }
-=> [2,6]
-```
+
 ```
 toys = {"cars": ["mazda","porsche","subaru"], "bikes": ["schwinn", "GT", "surly"]}
 toys.each do |key, value|
@@ -55,7 +52,7 @@ We learned how to work with collections of data in Javascript: looping through d
  - View Usage examples
  - View The Docs here: [Enumerable](https://ruby-doc.org/core-2.3.3/Enumerable.html)
  
-### Group Exercise: Documentation Dive 
+ ### Group Exercise: Documentation Dive 
 
  - Instructions: In your pods, spend 10 minutes using Ruby documentation to look up an assigned enumerable. Prepare the following for your demo:
 
@@ -63,26 +60,27 @@ We learned how to work with collections of data in Javascript: looping through d
     - What arguments can the method take?
     - What is returned?
     - Does it take a block? If so, what happens when a block is given? 
-  - An example
   - A list of any method aliases (i.e `inject` and `reduce`)
+  - An example of the method. 
   - At a high level, try to find/think of a use case of this enumerable in the wild. It doesn't have to be the actual code, just conceptually similar.
+  
   - The enumerables are:
 
-  - `Each With Index`
-  - `Reject`
-  - `map` 
+  1.`each_with_index`
+  2.`reject`
+  3.`map` 
   
-  - `Find`
-  - `Select`
-  - `Sort By`
+  4.`find`
+  5.`select`
+  6.`sort_by`
   
-  - `Reduce` 
-  - `any?`
-  - `all?`
+  7.`reduce` 
+  8.`any?`
+  9.`each`
   
-  - `include?` 
-  - `flat_map`
-  - `grep`
+  10.`include?` 
+  11.`flat_map`
+  12.`all`
   
 
 ## You Do 
@@ -97,22 +95,16 @@ toppings = [ "gummi bears", "hot fudge", "butterscotch", "rainbow sprinkles", "c
 
 Hint: "nest"
 
-## More Examples
-What does this do?
+## Learn Together
+- Describe what is going on here?
 ```
-(5..10).inject(1, :*)
+[2,5,6,7].select {|num| num % 2 == 0 }
+=> [2,6]
 ```
-How about this?
 
-```
-longest = %w{ cat sheep bear }.reduce do |memo, word|
-   memo.length > word.length ? memo : word
-end
-longest
-```
-Back to the earlier example of method names that start with an "s":
-`[].methods.select { | meth | meth=~/\A(s)/ }`
-What is going on here?
+Give me just the names that start with "s":
+`["sam","tim","bob","solomon"].select { | name | name=~/\A(s)/ }`
+
 
 ## Break!
 
@@ -132,6 +124,18 @@ What is going on here?
  
 ### Reduce
  - `reduce` is used to "summarize" the elements in an Enumerable
+ - What does this do?
+```
+(5..10).inject(1, :*)
+```
+- How about this?
+
+```
+longest = %w{ cat sheep bear }.reduce do |memo, word|
+   memo.length > word.length ? memo : word
+end
+longest
+```
  - The Docs say it well:
  ```
 reduce(initial, sym) → obj
