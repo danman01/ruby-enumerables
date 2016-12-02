@@ -194,3 +194,7 @@ Go here for the details and to get started: https://github.com/danman01/high_car
 ## Homework:
 Finish the High Card game! One submission per pair. Please have at least one commit from each person so we know who worked with who.
 https://github.com/danman01/high_card
+
+## Resources
+[GA DC Ruby Enumerables](https://github.com/ga-wdi-lessons/ruby-enumerables)
+[Ruby Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
