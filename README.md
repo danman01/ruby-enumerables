@@ -113,12 +113,6 @@ Give me just the names that start with "s":
 
 ## Break!
 
-## Ranges
- - What is a range?
- - `1..2` is different from
- `1...10`
- -Is a range enumerable?
- -How do you know?
 
 ### Map
  - The Enumerable module contains several methods that allow you to create a new collection out of an existing one. `map` is a popular method that applies code to each item in the original collection and returns a new array.
@@ -161,7 +155,38 @@ end
 longest
 ```
 
-## Demo: Write our own class that implements Enumerable
+## Ranges
+ - What is a range?
+  - A Range represents an interval. It is a set of values with a beginning and an end. Docs: (https://ruby-doc.org/core-2.2.0/Range.html)[https://ruby-doc.org/core-2.2.0/Range.html]
+ 
+ - `1..2` is different from
+ `1...10`
+ -Is a range enumerable?
+ -How do you know?
+
+### Code Together
+ - Let's determine grades of the class
+ ```
+ case grade
+   when 0..69
+    puts "f"
+   when 70..71
+    puts "d"
+   when 72..79
+    puts "c"
+   when 80..89
+    puts "b"
+   when 90..95
+    puts "a"
+   when 96..100
+    puts "a+"
+  end
+```
+### You Try: 
+ - Print all of the letters of the alphabet
+ - Only print numbers divisible by 3 in the range `1..100`
+
+## Code Together: Write our own class that implements Enumerable
  >The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method each, which yields successive members of the collection. If Enumerable#max, #min, or #sort is used, the objects in the collection must also implement a meaningful <=> operator, as these methods rely on an ordering between members of the collection. - [The Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
  
  - So your code to create a class that uses the Enumerable module will have at least four key things:
@@ -170,6 +195,8 @@ longest
  - an `each` method, which yields successive members of the collection
  - a `<=>` operator if Enumerable#max, #min, or #sort is used
  - How do you show which modules are included within a class?
+
+(More on writing classes in Ruby)[http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html]
 
 ## BREAK!
  
