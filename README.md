@@ -43,7 +43,9 @@ end
     - Try sorting this collection. (Hint: there is a `sort` method)
     - Think about how you might return only method names that start with "s" (...we will revisit this)
   - How does the instance of the class you chose have all of the methods of the Enumerable module available to it?
+  
 ## Ruby Docs
+
  - What methods are available in the Enumerable Module? `
  - Does a class have a certain method implemented?
  - View Usage examples
@@ -227,3 +229,5 @@ https://github.com/danman01/high_card
 ## Resources
 - [GA DC Ruby Enumerables](https://github.com/ga-wdi-lessons/ruby-enumerables)
 - [Ruby Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
+- [A Guide to Ruby Collections](https://www.sitepoint.com/guide-ruby-collections-iii-enumerable-enumerator/)
+- [RubyLearning - Writing our own Class in Ruby](http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html)
