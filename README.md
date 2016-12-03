@@ -49,7 +49,7 @@ end
  - View Usage examples
  - View The Docs here: [Enumerable](https://ruby-doc.org/core-2.3.3/Enumerable.html)
  
- ### Group Exercise: Documentation Dive 
+### Group Exercise: Documentation Dive 
 
  - Instructions: In your pods, spend 10 minutes using Ruby documentation to look up an assigned enumerable. Prepare the following for your demo:
 
@@ -79,6 +79,8 @@ end
   11. `flat_map`
   12. `all`
   
+- What happens when no arguments are given to a method?
+ - [Enumerable Class](http://ruby-doc.org/core-2.2.0/Enumerator.html)
 
 ## You Do: Ice Cream Menu
 
@@ -164,9 +166,9 @@ longest
  -Is a range enumerable?
  -How do you know?
 
-### Code Together
+## Code Together
  - Let's determine grades of the class
- ```
+```
  case grade
    when 0..69
     puts "f"
@@ -186,7 +188,7 @@ longest
  - Print all of the letters of the alphabet
  - Only print numbers divisible by 3 in the range `1..100`
 
-## Code Together: Write our own class that implements Enumerable
+## Write our own class that implements Enumerable
  >The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method each, which yields successive members of the collection. If Enumerable#max, #min, or #sort is used, the objects in the collection must also implement a meaningful <=> operator, as these methods rely on an ordering between members of the collection. - [The Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
  
  - So your code to create a class that uses the Enumerable module will have at least four key things:
