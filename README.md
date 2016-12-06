@@ -110,7 +110,7 @@ Give me just the names that start with "s":
 ```
 ["sam","tim","bob","solomon"].select do | name | 
   name=~/\A(s)/ 
- end
+end
 ```
 
 
@@ -199,7 +199,7 @@ longest
  - (optionally) a `<=>` operator if Enumerable#max, #min, or #sort is used
  - How do you show which modules are included within a class?
 
-(More on writing classes in Ruby)[http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html]
+[More on writing classes in Ruby](http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html)
 
 ## BREAK!
  
@@ -210,20 +210,22 @@ How do you compare cards?
 Start working with a partner and create and play a few rounds of the popular card game, "High Card!" 
 
 You will:
- - On one users' GitHub account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
+ - On one users' GitHub account, fork and clone the [High Card project](https://github.com/ga-wdi-pvd/high_card). **There will be one submission per pair. Ensure you both have read / write access to the repo.**
  - use Ruby enumerable methods to create the game
  - create an algorithm to determine which of two cards, if either, is "greater" than the other.
  - accept input from the command line that your program uses
  - switch off who is typing the code and who is researching methods
  - Talk through your approach, what you discovered or what you struggled with
 
-Go here for the details and to get started: https://github.com/danman01/high_card
+Go here for the details and to get started: https://github.com/ga-wdi-pvd/high_card
 
--Bonus! Implement the <=> operator in your high card game
+### Bonus! 
+
+- Implement the <=> operator in your high card game
  
 ## Homework:
 Finish the High Card game! One submission per pair. Please have at least one commit from each person so we know who worked with who.
-https://github.com/danman01/high_card
+https://github.com/ga-wdi-pvd/high_card
 
 ## Resources
 - [GA DC Ruby Enumerables](https://github.com/ga-wdi-lessons/ruby-enumerables)
