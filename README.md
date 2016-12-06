@@ -2,16 +2,14 @@
 ## Framing
 One of the most common things we do as developers is to iterate through data structures.
 
-Whenever we talk about data in Ruby, its important to review how Ruby handles groups of data.
-
 We learned how to work with collections of data in Javascript: looping through data, getting things into and out of arrays and hashes. Now we're going to learn how to work with collections of data in Ruby.
 
 ## Objectives
- - Review Ruby Classes, Instances and Modules
  - Learn about Enumerables in Ruby
  - Access the Ruby Docs to find information on methods and modules
  - What are the differences between Javascript and Ruby enumerables?
  - Use enumerables to traverse, search, sort and modify collections.
+ - Review Ruby Classes, Instances and Modules
  - Implement a ruby class that is enumerable
  
 ## What is an Enumerable?
@@ -31,20 +29,22 @@ end
 => cars: ["mazda", "porsche", "subaru"]
    bikes: ["schwinn", "GT", "surly"]
 ```
- - acts on a collection ([] and {}, otherwise known as...)
+ - acts on a collection (`[]` and `{}`, otherwise known as...)
   
  - Use in your classes by `include`ing the module
    - known as a `mixin`
    
 ### Try it
- - Open your `irb` and create an enumerable
-  - What methods are available to your enumerable?
-  - `yourEnum.methods`
+ - Open your `irb` and create an enumerable. Save it to the variable, `myEnum`
+  - What methods are available to `myEnum`? (Hint: `myEnum.methods`)
     - Try sorting this collection. (Hint: there is a `sort` method)
+    - Does the list of methods `include` the `min` method? (Hint: there is an `include?` method)
     - Think about how you might return only method names that start with "s" (...we will revisit this)
   - How does the instance of the class you chose have all of the methods of the Enumerable module available to it?
   
 ## Ruby Docs
+
+The Docs are great if you want to know...
 
  - What methods are available in the Enumerable Module? `
  - Does a class have a certain method implemented?
@@ -79,7 +79,7 @@ end
   
   10. `include?` 
   11. `flat_map`
-  12. `all`
+  12. `all?`
   
 - What happens when no arguments are given to a method?
  - [Enumerable Class](http://ruby-doc.org/core-2.2.0/Enumerator.html)
@@ -147,8 +147,8 @@ Give me just the names that start with "s":
 (5..10).reduce(:+)
 ```
 
- -Find the longest word in a list, without using `reduce`
-  ["war","what","is","it","good","forrrr"]
+ - Find the longest word in a list, without using `reduce`
+  `["war","what","is","it","good","forrrr"]`
  
  - Now try it with `reduce`
 
@@ -161,7 +161,7 @@ longest
 
 ## Ranges
  - What is a range?
-  - A Range represents an interval. It is a set of values with a beginning and an end. Docs: (https://ruby-doc.org/core-2.2.0/Range.html)[https://ruby-doc.org/core-2.2.0/Range.html]
+  - A Range represents an interval. It is a set of values with a beginning and an end. (Docs)[https://ruby-doc.org/core-2.2.0/Range.html]
  
  - `1..2` is different from
  `1...10`
@@ -193,11 +193,11 @@ longest
 ## Write our own class that implements Enumerable
  >The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method each, which yields successive members of the collection. If Enumerable#max, #min, or #sort is used, the objects in the collection must also implement a meaningful <=> operator, as these methods rely on an ordering between members of the collection. - [The Docs](https://ruby-doc.org/core-2.3.3/Enumerable.html)
  
- - So your code to create a class that uses the Enumerable module will have at least four key things:
- - A class definition, so we know it's a class
- - an `include` statement to "mixin" the Enumerable module and gain all of it's superpower
+ - Your code to create a class that uses the Enumerable module will have at least four key things:
+ - A class definition,
+ - an `include` statement to "mixin" the Enumerable module and gain all of its superpower
  - an `each` method, which yields successive members of the collection
- - a `<=>` operator if Enumerable#max, #min, or #sort is used
+ - (optionally) a `<=>` operator if Enumerable#max, #min, or #sort is used
  - How do you show which modules are included within a class?
 
 (More on writing classes in Ruby)[http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html]
@@ -211,7 +211,7 @@ How do you compare cards?
 Start working with a partner and create and play a few rounds of the popular card game, "High Card!" 
 
 You will:
- - On one users' Git account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
+ - On one users' GitHub account, fork and clone the project. There will be one submission per pair. Ensure you both have read / write access to the repo.
  - use Ruby enumerable methods to create the game
  - create an algorithm to determine which of two cards, if either, is "greater" than the other.
  - accept input from the command line that your program uses
