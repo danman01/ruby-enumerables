@@ -7,7 +7,6 @@ We learned how to work with collections of data in Javascript: looping through d
 ## Objectives
  - Learn about Enumerables in Ruby
  - Access the Ruby Docs to find information on methods and modules
- - What are the differences between Javascript and Ruby enumerables?
  - Use enumerables to traverse, search, sort and modify collections.
  - Review Ruby Classes, Instances and Modules
  - Implement a ruby class that is enumerable
